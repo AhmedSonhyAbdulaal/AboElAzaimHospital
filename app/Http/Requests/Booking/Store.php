@@ -29,10 +29,10 @@ class Store extends FormRequest
             'tel' => ['required','string','regex:/^\d{11}$/',Rule::unique('attendees','tel')->ignore(Attendee::where('email',$this->email)->first()?->id)],
             'nationality' => ['required',Rule::exists('nationalities','nation')],
             'role' => ['required',Rule::exists('roles','role_type')],
-            'workShops' => ['required','array'],
+            'workShops' => ['required','array','min:1'],
             'workShops.*' => ['required','array'],
             // 'workShops.*.price' => ['required',Rule::exists('prices','price')],
-            'workShops.*.name' => ['required',Rule::exists('work_shops','name')],
+            'workShops.*.name' => ['required',Rule::exists('work_shops','nameEN')],
             'images' => ['nullable','array'],
             'images.*' => ['nullable','file','mimes:png,jpeg,gif,pdf'],
         ];

@@ -120,5 +120,6 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+    "MAIL_TO_ADDRESS_DEFAULT" => env('MAIL_TO_ADDRESS_DEFAULT','ahmed.sobhy@uktra.net'),
 
 ];

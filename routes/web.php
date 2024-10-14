@@ -18,24 +18,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/','welcome');
 
-Route::prefix('price')->middleware('auth')->group(function(){
-    Route::get('/', [PriceController::class, 'index'])->name('price-index')->middleware('guest')->excludedMiddleware('auth');
-    // Route::get('/{price}', [PriceController::class, 'find'])->name('price-find');
-    Route::post('/', [PriceController::class, 'store'])->name('price-store');
-    Route::put('/{price}', [PriceController::class, 'update'])->name('price-update');
-    Route::delete('/{price}', [PriceController::class, 'delete'])->name('price-delete');
-});
+// Route::prefix('price')->middleware('auth')->group(function(){
+//     Route::get('/', [PriceController::class, 'index'])->name('price-index')->middleware('guest')->excludedMiddleware('auth');
+//     // Route::get('/{price}', [PriceController::class, 'find'])->name('price-find');
+//     Route::post('/', [PriceController::class, 'store'])->name('price-store');
+//     Route::put('/{price}', [PriceController::class, 'update'])->name('price-update');
+//     Route::delete('/{price}', [PriceController::class, 'delete'])->name('price-delete');
+// });
 
 
 
-Route::prefix('booking')->middleware('guest')->group(function(){
-    Route::get('/', [BookingController::class, 'index'])->name('booking-index');
-    // Route::get('/{time}', [BookingController::class, 'find'])->name('booking-find');
-    Route::post('/', [BookingController::class, 'store'])->name('booking-store');
-});
+// Route::prefix('booking')->middleware('guest')->group(function(){
+//     Route::get('/', [BookingController::class, 'index'])->name('booking-index');
+//     // Route::get('/{time}', [BookingController::class, 'find'])->name('booking-find');
+//     Route::post('/', [BookingController::class, 'store'])->name('booking-store');
+// });
 
 
-Route::prefix('session')->middleware('guest')->group(function(){
-    Route::post('/', [SessionController::class, 'store'])->name('session-store');
-    Route::delete('/', [SessionController::class, 'distroy'])->name('price-delete');
-});
+// Route::prefix('session')->middleware('guest')->group(function(){
+//     Route::post('/', [SessionController::class, 'store'])->name('session-store');
+//     Route::delete('/', [SessionController::class, 'distroy'])->name('price-delete');
+// });

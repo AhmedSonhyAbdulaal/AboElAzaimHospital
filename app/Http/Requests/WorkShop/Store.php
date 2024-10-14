@@ -23,7 +23,8 @@ class Store extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required','string','max:255',Rule::unique('work_shops','name')],
+            'nameEN' => ['required','string','max:255',Rule::unique('work_shops','nameEN')],
+            'nameAR' => ['required','string','max:255',Rule::unique('work_shops','nameAR')],
         ];
     }
 }

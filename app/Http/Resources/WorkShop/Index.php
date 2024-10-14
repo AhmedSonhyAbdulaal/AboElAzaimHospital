@@ -15,7 +15,9 @@ class Index extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'name' => $this->name,
+            'nameAR' => $this->nameAR,
+            'nameEN' => $this->nameEN,
+            'id' => $this->id,
         ];
     }
 }

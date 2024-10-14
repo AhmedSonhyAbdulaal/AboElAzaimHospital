@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('work_shops', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->uniqid();
+            $table->string('nameAR')->uniqid();
+            $table->string('nameEN')->uniqid();
             $table->boolean('is_primary')->default(false);
             // $table->foreignId('booking_id')->constrained('bookings')->cascadeOnDelete()->cascadeOnUpdate();
             // $table->foreignId('price_id')->constrained('prices')->cascadeOnDelete()->cascadeOnUpdate();

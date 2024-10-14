@@ -23,15 +23,17 @@ class WorkShopRelationController extends Controller
         ]);
         $role = Role::where('role_type',$validated['role_type'])->first();
         $nationality = Nationality::where('nation',$validated['nationality'])->first();
+        dd(DB::select('select price_id,work_shop_id from nationalities_roles_prices_work_shops where nation_id = ? and role_id = ? ',[$nationality->id,$role->id]));
         return response()->json([
-            'date' => Index::collection(DB::select('select price_id,work_shop_id from nationalities_roles_prices_work_shops where nation_id = ? and role_id = ?',[$nationality->id,$role->id])),
+            'date' => Index::collection(DB::select('select price_id,work_shop_id from nationalities_roles_prices_work_shops where nation_id = ? and role_id = ? LIMIT 0, 2',[$nationality->id,$role->id])),
+            'workShops' => Index::collection(DB::select('select price_id,work_shop_id from nationalities_roles_prices_work_shops where nation_id = ? and role_id = ? LIMIT 18446744073709551615 OFFSET 2',[$nationality->id,$role->id])),
         ],200);
     }
 
     public function store (Store $request)
     {
         try {
-            WorkShop::where('name',$request['workshop'])->first()
+            WorkShop::where('nameEN',$request['workshop'])->first()
             ->roleTypes()->attach(Role::where('role_type',$request['role_type'])->first()->id,[
                 'nation_id'=>Nationality::where('nation',$request['nationality'])->first()->id,
                 'price_id'=>$request['price'],

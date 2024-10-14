@@ -2,12 +2,13 @@
     <p>attendee name : {{$data['name']}}</p>
     <p>attendee email : {{$data['email']}}</p>
     <p>attendee pay for : 
-        @foreach ($data['attendee'] as $Atten)
-            @foreach ($Atten['bookings'] as $book)
-                @foreach ($book['workShops'] as $shop)
-                    {{$shop->name}}
-                    <br>
-                @endforeach
+        <br>
+        @foreach ($data['attendee'][0]['bookings'] as $book) 
+			@foreach ($book['workShops'] as $shop)
+				{{$shop->nameEN}}
+				&nbsp; &nbsp; ---- &nbsp; &nbsp;
+				{{$shop->nameAR}}
+				<br>
             @endforeach
         @endforeach
     </p>

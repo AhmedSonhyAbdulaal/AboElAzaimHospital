@@ -23,7 +23,8 @@ class Update extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required','string',Rule::unique('work_shops','name')->ignore($this->route('work_shop')->id)],
+            'nameEN' => ['required','string',Rule::unique('work_shops','nameEN')->ignore($this->route('work_shop')->id)],
+            'nameAR' => ['required','string',Rule::unique('work_shops','nameAR')->ignore($this->route('work_shop')->id)],
         ];
     }
 }

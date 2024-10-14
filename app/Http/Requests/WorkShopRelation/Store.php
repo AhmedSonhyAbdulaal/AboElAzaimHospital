@@ -26,7 +26,7 @@ class Store extends FormRequest
             'role_type' => ['required', 'string',Rule::exists('roles','role_type')],
             'nationality' => ['required', 'string',Rule::exists('nationalities','nation')],
             'price' => ['required', 'numeric',Rule::exists('prices','id')],
-            'workshop' => ['required', 'string',Rule::exists('work_shops','name')],
+            'workshop' => ['required', 'string',Rule::exists('work_shops','nameEN')],
         ];
     }
 }

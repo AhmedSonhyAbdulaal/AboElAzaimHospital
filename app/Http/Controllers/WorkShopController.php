@@ -14,7 +14,7 @@ class WorkShopController extends Controller
     public function index ()
     {
         return response()->json([
-            'date' => Index::collection(WorkShop::all(['name'])),
+            'date' => Index::collection(WorkShop::all(['nameAR','nameEN','id'])),
         ],200);
     }
 

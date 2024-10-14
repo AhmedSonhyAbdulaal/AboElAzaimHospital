@@ -17,7 +17,8 @@ class WorkShopFactory extends Factory
     public function definition(): array
     {
         return [
-            "name" => "Conferance",
+            "nameAR" => "المؤتمر",
+            "nameEN" => "Conferance",
             "is_primary" => true,
         ];
     }
